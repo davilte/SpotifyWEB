@@ -11,5 +11,4 @@ import { PlaylistsComponent } from './playlists.component';
         CommonModule
     ]
   })
-  export class PlaylistsModule {
-  }
+  export class PlaylistsModule { }

@@ -7,8 +7,9 @@
             <h3 class='h3Home'> Playlists em alta para animar sua tarde! </h3>
             <h5 class='h4Home'> Gêneros e momentos </h5>
             <div class = 'linha'></div>
-            <div class = 'divImages'>
-                <img ng-repeat="item in playlists" src={{item.img}} class = 'images'>
+            <div class = 'divImages' *ngFor="let p of playlists">
+                <p>{{p.id}}</p>
+                <!-- <img src={{p.img}} class = 'images'> -->
             </div>
         </div>
 

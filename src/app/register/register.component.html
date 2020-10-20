@@ -1,3 +1,37 @@
-<div>
-    
-</div>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form (ngSubmit)="register()">
+
+                    <h2 class="text-center">Cadastro</h2>
+
+                    <div class="form-group">
+                        <input type="text" required class="form-control" placeholder="Email" name="email" ngModel>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" required class="form-control" placeholder="Confirmar email" name="confirmEmail" ngModel>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" required class="form-control" placeholder="Senha" name="password" ngModel>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" required class="form-control" placeholder="Apelido" name="nickname" ngModel>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="date" required class="form-control" placeholder="Data de nascimento" name="birthday" ngModel>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" id="regButton">Cadastrar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
