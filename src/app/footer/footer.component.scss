@@ -1,0 +1,42 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    background: black;
+    align-items: center;
+    text-align: center;
+    color: white;
+
+    #date {
+        color: white;
+    }
+
+    #spanText {
+        font-family: "M PLUS Rounded 1c", sans-serif;
+        -webkit-animation: rainbow 5s infinite;
+    }
+
+    @keyframes rainbow {
+        0% {
+            color: #FFFFFF;
+        }
+        20% {
+            color: #1DB954;
+        }
+        40% {
+            color: #FFFFFF;
+        }
+        60% {
+            color: #1DB954;
+        }
+        80% {
+            color: #FFFFFF;
+        }
+        100% {
+            color: #1DB954;
+        }
+    }
+}

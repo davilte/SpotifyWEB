@@ -1,0 +1,63 @@
+.divSAC {
+    width: 100%;
+    // height: 80vh;
+    position: absolute;
+    text-align: center;
+    background-color: #1ed760;
+    height: 80vh;
+    display: grid;
+        
+}
+
+    .qst {  
+        margin: 40px auto;
+        background-image: linear-gradient(120deg, #1ed760, #1ed760, #1ed760, #1ed760, #1ed760, black);
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 4px;
+        display: flex;
+        width: 95%;
+        height: 10vh;
+        padding: 25px;
+        font-family: "M PLUS Rounded 1c", sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+
+        u {
+            font-size: 150%;
+            text-decoration: none;
+        }
+
+        u:hover{
+            color: white;
+        }
+
+        span {
+            margin: auto 16px;
+            font-size: 20px;
+            font-weight: 200;
+        }
+
+        @keyframes rainbow {
+            0% {
+                color: #FFFFFF;
+            }
+            20% {
+                color: #1DB954;
+            }
+            40% {
+                color: #FFFFFF;
+            }
+            60% {
+                color: #1DB954;
+            }
+            80% {
+                color: #FFFFFF;
+            }
+            100% {
+                color: #1DB954;
+            }
+        }
+
+    }
+

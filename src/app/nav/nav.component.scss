@@ -1,0 +1,32 @@
+#imgLogo{
+    width: 11rem;
+    height: 5vh;
+    margin-left: 0rem;
+}
+
+.navbar{
+    background-color: black !important;
+    height: 10vh;
+    display: flex; 
+    align-items: center;
+    opacity: 1;
+}
+
+.spanAjuda{
+    color: white;
+    text-decoration: none;
+    margin-right: 32px;
+    font-size: 16px;
+}
+
+.spanAjuda:hover{
+    color: #1ed760;
+}
+
+.a{
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}

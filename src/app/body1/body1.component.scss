@@ -1,0 +1,64 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    // background-image: url("https://www.meupositivo.com.br/doseujeito/wp-content/uploads/2019/08/como-convidar-pessoas-para-o-plano-spotify-familia.jpg");
+    // background-repeat: no-repeat;
+    // background-size: 100%;
+    // background-position: center;
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    #divImagem {
+        
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+
+    }
+    #img{
+        width: 100vw;
+        height: 100%;
+    }
+}
+
+.card{
+    height: 72vh;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px 1px rgba(0, 0, 0, 0.363) !important;
+    font-size: 1vw;
+    &:hover {
+        background: rgb(246, 246, 246);
+    }
+}
+
+.card-deck {
+    position: absolute;
+    top: 5%;
+    width: 99.5vw;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.card-text{
+    display: list-item;
+    margin: 16px;
+}
+
+.divBotao{
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 18%;
+}
+
+.botaoConfirmar{
+    background-color: #1ed760 !important;
+    border-color: #1ed760 !important;
+    // margin: 16rem 9rem 0rem 9rem;
+    box-shadow: 1px 1px 5px 1px #1ed760 !important;
+    &:hover {
+        background: #26ca5f !important;
+    }
+}
