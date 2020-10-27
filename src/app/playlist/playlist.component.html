@@ -1,7 +1,10 @@
-<div>
+<div id="container">
     <ul>
-        <li *ngFor="let m of musics">
-            <label>{{m.name}}</label>
+        <li *ngFor="let m of musics; let i = index">
+            <div id="info">
+                <label><span id="number">{{i+1}}.</span> {{m.name}}</label>
+                <span id="artist">{{m.artist}}</span>
+            </div>
             <audio controls><source src={{m.path}} type="audio/ogg"></audio>
         </li>
     </ul>

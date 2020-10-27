@@ -7,8 +7,14 @@ import { Music } from '../playlist/music';
 export class MusicService {
 
   constructor() { }
-
+  
   public musics: Music[] = [
+    {
+      name: "Black Lives Matter",
+      artist: "Dom M",
+      playlistId: 1,
+      path: "../../assets/audio/blackLivesMatter.mp3"
+    },
     {
       name: "Deixa acontecer",
       artist: "Grupo revelação",

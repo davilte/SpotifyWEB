@@ -58,7 +58,7 @@ export class PlaylistService {
     { 
       id: 10, 
       name: 'Pop',
-      img: '../../assets/images/image9.png'
+      img: '../../assets/images/image9.png',
     },
   ]
 

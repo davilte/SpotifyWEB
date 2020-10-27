@@ -76,6 +76,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    console.log(this.fGroup.value);
+    
     alert('Usuário cadastrado com sucesso')
     this.email = "";
     this.confirm_email = "";
