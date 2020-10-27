@@ -3,34 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
-import { SacComponent } from './sac/sac.component';
-import { HomeComponent } from './home/home.component';
+import { PlaylistsComponent } from './playlists/playlists.component';
 import { Body1Component } from './body1/body1.component';
 import { FooterComponent } from './footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PlaylistsComponent } from './playlists/playlists.component';
-import { RegisterComponent } from './register/register.component';
+import { NavComponent } from './nav/nav.component';
 import { PlaylistComponent } from './playlist/playlist.component';
-import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { RegisterComponent } from './register/register.component';
+import { SacComponent } from './sac/sac.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    SacComponent,
-    HomeComponent,
+    PlaylistsComponent,
     Body1Component,
     FooterComponent,
-    // PlaylistsComponent,
-    // PlaylistComponent,
-    // RegisterComponent,
+    NavComponent,
+    PlaylistComponent,
+    RegisterComponent,
+    SacComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

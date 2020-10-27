@@ -1,37 +1,58 @@
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <form (ngSubmit)="register()">
+<div class='divRegister'>
+    <div>
+        <img id='imgLogo2' src="../../assets/images/download.png" class="d-inline-block align-top">
+        <div>
+            <form [formGroup]="fGroup">
+                <div>
+                    <span class='spanRegistro'>Inscreva-se com seu endereço de e-mail</span>
+                </div>
+                <div>
+                    <input type="email" name="email" [(ngModel)]="email" class="InputEmail" placeholder="E-mail"
+                        formControlName="email"><br>
+                    <span *ngIf="fGroup.controls.email.hasError('email')"> Email inválido </span>
 
-                    <h2 class="text-center">Cadastro</h2>
+                    <input (blur)="emailsCompare()" type="email" class="InputConfirmarEmail" [(ngModel)]="confirm_email" name="confirm_email"
+                        placeholder="Confirmar e-mail" formControlName="confirm_email">
+                    <span *ngIf="fGroup.controls.confirm_email.hasError('email')"> Email inválido </span><br>
+                    <span *ngIf="equalEmails"> Emails não coincidem </span>
+                    <input type="password" placeholder="Senha" class='InputSenha' formControlName="password"
+                        [(ngModel)]="password"><br>
+                    <span *ngIf="fGroup.controls.password.hasError('minlength')"> Senha muito curta </span>
 
-                    <div class="form-group">
-                        <input type="text" required class="form-control" placeholder="Email" name="email" ngModel>
-                    </div>
+                    <input type="text" placeholder="Como devemos chamar você?" class='InputID' formControlName="nick"
+                        [(ngModel)]="nick"><br>
+                    <span *ngIf="fGroup.controls.nick.hasError('required')"> Obrigatorio* </span>
 
-                    <div class="form-group">
-                        <input type="text" required class="form-control" placeholder="Confirmar email" name="confirmEmail" ngModel>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" required class="form-control" placeholder="Senha" name="password" ngModel>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" required class="form-control" placeholder="Apelido" name="nickname" ngModel>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="date" required class="form-control" placeholder="Data de nascimento" name="birthday" ngModel>
-                    </div>
-
-                    <div class="text-center">
-                        <button type="submit" id="regButton">Cadastrar</button>
-                    </div>
-
-                </form>
-            </div>
+                </div>
+                <div>
+                    <input type="text" placeholder="Dia" class='InputDia' [(ngModel)]="day" formControlName="day">
+                    <select class='SelectMes' [(ngModel)]="month" formControlName="month">
+                        <option>Mês</option>
+                        <option>Janeiro</option>
+                        <option>Fevereiro</option>
+                        <option>Março</option>
+                        <option>Abril</option>
+                        <option>Maio</option>
+                        <option>Junho</option>
+                        <option>Julho</option>
+                        <option>Agosto</option>
+                        <option>Setembro</option>
+                        <option>Outubro</option>
+                        <option>Novembro</option>
+                        <option>Dezembro</option>
+                    </select>
+                    <input type="text" placeholder="Ano" class='InputAno' [(ngModel)]="year" formControlName="year">
+                </div>
+                <div>
+                    <input type="checkbox" id="masculino" name="masculino"> Masculino
+                    <input type="checkbox" id="feminino" name="feminino"> Feminino
+                    <input type="checkbox" id="naobinario" name="Não binário"> Não binário
+                </div>
+                <div class='divBotaoInscrever'>
+                    <button [disabled]="!fGroup.valid" class='botaoInscrever' (click)="register()">INSCREVER-SE</button>
+                </div>
+            </form>
         </div>
     </div>
-</body>
+
+</div>
