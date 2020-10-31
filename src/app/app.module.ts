@@ -11,6 +11,8 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { RegisterComponent } from './register/register.component';
 import { SacComponent } from './sac/sac.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +22,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavComponent,
     PlaylistComponent,
     RegisterComponent,
-    SacComponent
+    SacComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

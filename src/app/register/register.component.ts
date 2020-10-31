@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { RegisterService } from '../services/register.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,8 @@ export class RegisterComponent implements OnInit {
 
   public fGroup: FormGroup;
   constructor(
-    private fBuilder: FormBuilder
+    private fBuilder: FormBuilder,
+    private registerService: RegisterService
   ) {
     this.fGroup = this.fBuilder.group({
       
@@ -65,8 +67,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
   emailsCompare() {
-    console.log(this.equalEmails);
-    
     if (this.email === this.confirm_email) {
       this.equalEmails = false;
     }
@@ -76,15 +76,19 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.fGroup.value);
     
-    alert('Usuário cadastrado com sucesso')
-    this.email = "";
-    this.confirm_email = "";
-    this.password = "";
-    this.nick = "";
-    this.day = "";
-    this.month = "";
-    this.year = "";
+    let user = {
+      email: this.fGroup.value.email,
+      password: this.fGroup.value.password,
+      nick: this.fGroup.value.nick,
+      birthday: this.fGroup.value.day + "/" + this.fGroup.value.month + "/" + this.fGroup.value.year,
+    }
+    this.registerService.register(user).subscribe((res) => {
+      console.log(res);
+    }, (err) => {
+      alert('Usuário cadastrado com sucesso')
+      this.fGroup.reset();
+    })
+    
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Body1Component } from './body1/body1.component';
+import { LoginComponent } from './login/login.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { RegisterComponent } from './register/register.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
    { path: 'playlists', component: PlaylistsComponent },
    { path: 'playlist/:id', component: PlaylistComponent },
    { path: 'register', component: RegisterComponent },
+   { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
