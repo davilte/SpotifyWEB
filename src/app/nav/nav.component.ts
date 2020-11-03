@@ -9,12 +9,28 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   ajuda = false;
-
+  loggedIn = false;
+  nick;
   constructor(
     private router: Router,
-  ) { }
+  ) {
+    this.checkLogin();
+   }
+
+  checkLogin() {
+    this.nick = localStorage.getItem('userNick')
+    if(this.nick != null) {
+      this.loggedIn = true;
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    localStorage.clear();
+    this.loggedIn = false;
+    this.router.navigate(['/login']);
   }
 
 }

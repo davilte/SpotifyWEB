@@ -35,8 +35,9 @@ export class LoginComponent implements OnInit {
       this.loginService.getUser(this.authTokenService.decode(res.accessToken).sub)
 
       this.wrongLogin = false;
-      alert("Bem vindo!")
-      this.router.navigate(['']);
+      this.router.navigate(['']).then(() => {
+        window.location.reload();
+      });
     }, (err) => {
       this.wrongLogin = true;
     })
