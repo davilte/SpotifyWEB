@@ -16,7 +16,13 @@ export class LoginService {
     return this.http.post(path, data)
   }
 
-  getUser(token) {
-
+  getUser(id) {
+    const path = environment.baseURL + "users/" + id
+    this.http.get(path).subscribe((res: any) => {
+      console.log(res);
+      localStorage.setItem("userNick", res.nick)
+    }, (error) => {
+      console.log(error);
+    })
   }
 }
