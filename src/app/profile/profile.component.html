@@ -1,0 +1,4 @@
+<input [(ngModel)]="userData.nick" (ngModelChange)="startEdit()"><br>
+<input [(ngModel)]="userData.email" (ngModelChange)="startEdit()"><br>
+<input [(ngModel)]="userData.birthday" readonly><br>
+<button (click)="save()" *ngIf="editing">Salvar</button>

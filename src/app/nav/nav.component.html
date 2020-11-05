@@ -9,7 +9,7 @@
         <a routerLink="/ajuda" class = 'spanAjuda'>Ajuda</a>
         <a *ngIf="!loggedIn" routerLink="/register" class = 'spanAjuda'>Cadastro</a>
         <a *ngIf="!loggedIn" routerLink="/login" class = 'spanAjuda'>Login</a>
-        <a *ngIf="loggedIn" class = 'spanAjuda'>{{nick}}</a>
+        <a routerLink="/profile" *ngIf="loggedIn" class = 'spanAjuda'>{{nick}}</a>
         <a routerLink="/login" *ngIf="loggedIn" class = 'spanAjuda' (click)="logout()"> Sair </a>
       </div>
     </nav>

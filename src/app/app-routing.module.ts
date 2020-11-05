@@ -4,6 +4,7 @@ import { Body1Component } from './body1/body1.component';
 import { LoginComponent } from './login/login.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { SacComponent } from './sac/sac.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
    { path: 'playlist/:id', component: PlaylistComponent },
    { path: 'register', component: RegisterComponent },
    { path: 'login', component: LoginComponent },
+   { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({

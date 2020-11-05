@@ -13,6 +13,7 @@ import { SacComponent } from './sac/sac.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     PlaylistComponent,
     RegisterComponent,
     SacComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
