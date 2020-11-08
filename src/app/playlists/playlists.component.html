@@ -1,19 +1,39 @@
 <div class="divFundo">
 
-    <div class="Titulo"> 
+    <div class="Titulo">
 
         <div>
             <span class='h1Home'> Navegar </span>
             <h3 class='h3Home'> Playlists em alta para animar sua tarde! </h3>
             <h5 class='h4Home'> Gêneros e momentos </h5>
-            <div class = 'linha'></div>
-            <div class = 'divImages'>
-                <img routerLink="/playlist/{{p.id}}" *ngFor="let p of playlists" src={{p.img}} class = 'images'>
+            <div class='linha'></div>
+            <div class='divImages'>
+                <img routerLink="/playlist/{{p.id}}" *ngFor="let p of playlists" src={{p.img}} class='images'>
             </div>
             <br>
             <h5 class='h4Home'> Suas Playlists </h5>
-            <div class = 'linha'></div>
-            <img style="width: 64px; margin: 16px 0 0 48px" class="images" src="../../assets/images/add.png">
+            <div class='linha'></div>
+            <div class='divImages'>
+                <div style="border: 1px solid {{p.color}};" id="personalPLaylists" *ngFor="let p of personalPlaylists"> {{p.name}}</div>
+                <a href="#ex1" rel="modal:open"> <img style="width: 64px; margin: 32px 0 0 16px" class="images"
+                        src="../../assets/images/add.png"></a>
+            </div>
+
+
+            <div id="ex1" class="modal" style="height: 300px;">
+
+                <label>Nome da playlist:</label><br>
+                <input type="text" [(ngModel)]="playlist.name" placeholder="name"><br><br>
+
+                <label>Descrição da playlist:</label><br>
+                <textarea [(ngModel)]="playlist.description" placeholder="descrição"></textarea><br><br>
+
+                <label>Cor da playlist </label><br>
+                <input type="color" [(ngModel)]="playlist.color">
+
+                <a style="position: absolute; bottom: 16px; right: 16px;" (click)="newPlaylist()" href="#"
+                    rel="modal:close">Criar</a>
+            </div>
         </div>
 
     </div>

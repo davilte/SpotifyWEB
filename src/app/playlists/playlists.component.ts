@@ -12,13 +12,22 @@ import { Playlist } from './playlists';
 export class PlaylistsComponent implements OnInit {
 
   selectedPath = ""
+
+  playlist = {
+    name: '',
+    description: '',
+    color: '#ffffff'
+  }
   constructor(
     private router: Router,
-    private playlistService: PlaylistService
-  ) {}
+    private playlistService: PlaylistService,
+  ) {
+    this.getPersonalPlaylists()
+  }
           
   
   playlists: Playlist[] = []
+  personalPlaylists;
 
   ngOnInit(): void {
     this.playlists = this.playlistService.list()
@@ -28,6 +37,25 @@ export class PlaylistsComponent implements OnInit {
 
   nav(i) {
     console.log(i);
+  }
+
+  getPersonalPlaylists() {
+    this.playlistService.getPlaylists().subscribe((res: any) => {
+      this.personalPlaylists = res.personalPlaylists
+      console.log(this.personalPlaylists);
+      
+    })
+  }
+
+  newPlaylist() {
+    this.playlistService.getPlaylists().subscribe((res: any) => {
+      this.playlistService.newPlaylist(this.playlist, res.personalPlaylists).subscribe((response) => {
+        console.log(response);
+        this.getPersonalPlaylists();
+      }, (error) => {
+        console.log(error);
+      })
+    })
   }
 
 }

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.data).subscribe((res: any) => {
 
       localStorage.setItem("token", res.accessToken)
-
+      localStorage.setItem("userId", this.authTokenService.decode(res.accessToken).sub)
       //Pegando informações do usuário
       this.loginService.getUser(this.authTokenService.decode(res.accessToken).sub)
 
