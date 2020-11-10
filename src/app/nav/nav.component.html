@@ -9,8 +9,8 @@
         <button  style="border-radius: 16px; background: #1ed760;" (click)="search()"><a style="color: black" href="#ex1" rel="modal:open">Pesquisar</a></button>
       </div>
 
-      <div id="ex1" class="modal" style="height: auto;">
-        <div *ngFor="let r of results" style="display: flex; flex-direction: row; justify-content: space-between;">
+      <div id="ex1" class="modal" style="height: auto; padding: 0;">
+        <div *ngFor="let r of results" style="display: flex; flex-direction: row; justify-content: space-between; border-bottom: 1px solid rgb(172, 172, 172); width: 100%; padding: 16px;">
           <div style="width: 50%">
             <div>{{r.name}}</div>
             <div>{{r.artist}}</div>
@@ -20,9 +20,9 @@
               <source src={{r.path}} type="audio/ogg">
             </audio>
           </div>
-            <hr>
+          <hr>
         </div>
-        <a style="position: absolute; right: 16px; bottom: 4px;" href="#" rel="modal:close">Ok</a>
+        <a style="position: absolute; right: 8px; bottom: 2px;" href="#" rel="modal:close">Ok</a>
       </div>
       <div routerLinkActive="active">
         <a routerLink="/playlists" class = 'spanAjuda'>Playlists</a>

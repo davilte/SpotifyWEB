@@ -17,7 +17,7 @@ export class PlaylistService {
   }
 
   getPlaylistByName(name) {
-    const path = environment.baseURL + 'personalPlaylists?name=' + name
+    const path = environment.baseURL + 'personalPlaylists?name=' + name + '&user_id=' + localStorage.get('userId');
 
     return this.http.get(path)
   }
@@ -45,7 +45,7 @@ export class PlaylistService {
 
   //Personal
   getPlaylists() {
-    const path = environment.baseURL + 'personalPlaylists?userId=' + localStorage.getItem('userId')
+    const path = environment.baseURL + 'personalPlaylists?user_id=' + localStorage.getItem('userId')
     return this.http.get(path)
   }
 }

@@ -22,7 +22,7 @@ export class MusicService {
       ids.forEach(id => {
         idsString += `id=${id}&`
       });
-      const path = environment.baseURL + 'musics?' +idsString
+      const path = environment.baseURL + 'musics?' +idsString //id=1&id=2&id=7
       return this.http.get(path)
   }
 

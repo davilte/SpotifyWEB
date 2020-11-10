@@ -39,6 +39,7 @@ export class PlaylistComponent implements OnInit {
     const playlist = window.location.pathname
     this.id = playlist.substring(playlist.indexOf('playlist/') + 9);
 
+    //Se é numero
     if (!isNaN(this.id)) {
       this.id = window.location.pathname.charAt(length + 10);
       this.musicService.getMusicIds(this.id).subscribe((res: any) => {
@@ -47,6 +48,8 @@ export class PlaylistComponent implements OnInit {
           this.musics = res;
         })
       })
+
+    //Se é frase
     } else {
       this.personal = true;
       console.log(this.id);
