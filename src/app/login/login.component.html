@@ -1,4 +1,8 @@
-<input type="email" [(ngModel)]="data.email" placeholder="Email">
-<input type="password" [(ngModel)]="data.password" placeholder="Senha">
-<button (click)="login()">Login</button>
-<span id="wrongLogin" *ngIf="wrongLogin">Email ou senha inválidos</span>
+<div class="cont">
+    <span>Faça o login com seu e-mail e senha</span>
+
+    <input class="input" type="email" [(ngModel)]="data.email" placeholder="Email">
+    <input class="input" type="password" [(ngModel)]="data.password" placeholder="Senha">
+    <button (click)="login()">Login</button>
+    <span id="wrongLogin" *ngIf="wrongLogin">Email ou senha inválidos</span>
+</div>
