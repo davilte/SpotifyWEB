@@ -17,7 +17,8 @@ export class PlaylistsComponent implements OnInit {
     name: '',
     description: '',
     color: '#ffffff',
-    music_ids: []
+    music_ids: [],
+    user_id: ''
   }
   constructor(
     private router: Router,
@@ -45,21 +46,15 @@ export class PlaylistsComponent implements OnInit {
 
   getPersonalPlaylists() {
     this.playlistService.getPlaylists().subscribe((res: any) => {
-      this.personalPlaylists = res.personalPlaylists
-      console.log(this.personalPlaylists);
-      
+      this.personalPlaylists = res
     })
   }
 
 
   newPlaylist() {
-    this.playlistService.getPlaylists().subscribe((res: any) => {
-      this.playlistService.newPlaylist(this.playlist, res.personalPlaylists).subscribe((response) => {
-        console.log(response);
-        this.getPersonalPlaylists();
-      }, (error) => {
-        console.log(error);
-      })
+    this.playlist.user_id = localStorage.getItem('userId');
+    this.playlistService.newPlaylist(this.playlist).subscribe(res => {
+      this.getPersonalPlaylists();
     })
   }
 

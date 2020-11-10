@@ -16,6 +16,12 @@ export class PlaylistService {
     
   }
 
+  getPlaylistByName(name) {
+    const path = environment.baseURL + 'personalPlaylists?name=' + name
+
+    return this.http.get(path)
+  }
+
   getPlaylist(id) {
 
     const path = environment.baseURL + 'playlists/' + id
@@ -23,16 +29,12 @@ export class PlaylistService {
     return this.http.get(path)
   }
 
-  newPlaylist(playlist, playlistsOLD) {
-      let playlists = playlistsOLD
-
-      playlists.push(playlist);
-      console.log(playlists);
-
-      const path = environment.baseURL + 'users/' + localStorage.getItem('userId')
-
-      return this.http.patch(path, { personalPlaylists: playlists })
- 
+  newPlaylist(playlist) {
+    console.log(playlist);
+    
+    const path = environment.baseURL + 'personalPlaylists'
+    
+    return this.http.post(path, playlist)
   }
 
   getPublicPlaylists() {
@@ -43,7 +45,7 @@ export class PlaylistService {
 
   //Personal
   getPlaylists() {
-    const path = environment.baseURL + 'users/' + localStorage.getItem('userId')
+    const path = environment.baseURL + 'personalPlaylists?userId=' + localStorage.getItem('userId')
     return this.http.get(path)
   }
 }

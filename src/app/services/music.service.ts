@@ -27,17 +27,24 @@ export class MusicService {
   }
 
   getPersonalMusics(playlist) {
-    const path = environment.baseURL + 'users/' + localStorage.getItem('userId') 
+    const path = environment.baseURL + 'personalPlaylists?name=' + playlist
 
     return this.http.get(path)
   }
 
-  addToPlaylist(music) {
-    const path = environment.baseURL + 'users/' + localStorage.getItem('userId')
-    this.http.patch(path, music).subscribe((res: any) => {
-      console.log('OK');
-    }, (err) => {
-      console.log(err);
-    })
+  addToPlaylist(playlist) {
+    const path = environment.baseURL + 'personalPlaylists/' + playlist.id
+    console.log('path', path);
+    
+    return this.http.patch(path, playlist)
+  }
+
+  searchName(text) {
+    const path = environment.baseURL + 'musics?name=' + text
+    return this.http.get(path)
+  }
+  searchArtist(text) {
+    const path = environment.baseURL + 'musics?artist=' + text
+    return this.http.get(path)
   }
 }

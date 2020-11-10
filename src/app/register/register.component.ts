@@ -81,7 +81,7 @@ export class RegisterComponent implements OnInit {
       email: this.fGroup.value.email,
       password: this.fGroup.value.password,
       nick: this.fGroup.value.nick,
-      birthday: this.fGroup.value.day + "/" + this.fGroup.value.month + "/" + this.fGroup.value.year,
+      birthday: this.fGroup.value.day + "/" + this.fGroup.value.month + "/" + this.fGroup.value.year
     }
     this.registerService.register(user).subscribe((res) => {
       console.log(res);
