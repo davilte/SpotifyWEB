@@ -5,7 +5,22 @@
                 <label><span id="number">{{i+1}}.</span> {{m.name}}</label>
                 <span id="artist">{{m.artist}}</span>
             </div>
-            <audio controls><source src={{m.path}} type="audio/ogg"></audio>
+            <audio controls>
+                <source src={{m.path}} type="audio/ogg"></audio>
+            <div style="position: fixed; right: 16px; font-size: 24px;">
+            <a *ngIf="!personal" style="color: black" href="#ex1" rel="modal:open">+</a>
+            <a *ngIf="personal" style="color: black; cursor: pointer" (click)="remove()">-</a>
+            </div>
+            <div id="ex1" class="modal" style="height: 300px;">
+                <div style="cursor: pointer; margin: 16px;" (click)="add(m.id, p)" *ngFor="let p of playlists">{{p.name}}</div>
+            </div>
+
+
         </li>
     </ul>
+
+    <div style="color: red;" *ngIf="noMusics">
+        Esta playlist não contém nenhuma musica.
+    </div>
+
 </div>

@@ -14,7 +14,7 @@
             <h5 class='h4Home'> Suas Playlists </h5>
             <div class='linha'></div>
             <div class='divImages'>
-                <div style="border: 1px solid {{p.color}};" id="personalPLaylists" *ngFor="let p of personalPlaylists"> {{p.name}}</div>
+                <div routerLink="/playlist/{{p.name}}" style="border: 1px solid {{p.color}}" id="personalPLaylists" *ngFor="let p of personalPlaylists"> {{p.name}}</div>
                 <a href="#ex1" rel="modal:open"> <img style="width: 64px; margin: 32px 0 0 16px" class="images"
                         src="../../assets/images/add.png"></a>
             </div>

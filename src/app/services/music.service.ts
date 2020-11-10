@@ -1,67 +1,43 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Music } from '../playlist/music';
-
+import { Playlist } from '../playlists/playlists';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class MusicService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
   
-  public musics: Music[] = [
-    {
-      name: "Black Lives Matter",
-      artist: "Dom M",
-      playlistId: 1,
-      path: "../../assets/audio/blackLivesMatter.mp3"
-    },
-    {
-      name: "Deixa acontecer",
-      artist: "Grupo revelação",
-      playlistId: 4,
-      path: "../../assets/audio/deixaAcontecer.mp3"
-    },
-    {
-      name: "Sua mãe vai me amar",
-      artist: "Turma do Pagode",
-      playlistId: 4,
-      path: "../../assets/audio/suaMaeVaiMeAmar.mp3"
-    },
-    {
-      name: "Maquina do tempo",
-      artist: "Matuê",
-      playlistId: 7,
-      path: "../../assets/audio/maquinaDoTempo.mp3"
-    },
-    {
-      name: "É sal",
-      artist: "Matuê",
-      playlistId: 7,
-      path: "../../assets/audio/eSal.mp3"
-    },
-    {
-      name: "Cachorro caramelo",
-      artist: "Lil Whind",
-      playlistId: 7,
-      path: "../../assets/audio/cachorroCaramelo.mp3"
-    },
-    {
-      name: "Oh Juliana",
-      artist: "Niack",
-      playlistId: 9,
-      path: "../../assets/audio/ohJuliana.mp3"
-    },
-    {
-      name: "Comprei um Lança",
-      artist: "Mc Jacaré",
-      playlistId: 9,
-      path: "../../assets/audio/compreiUmLanca.mp3"
-    }
-  ]
+  getMusicIds(id) {
+    const path = environment.baseURL + "playlists/" + id
+    return this.http.get(path)
+  }
 
-  getMusics(id: number) {
-    return this.musics.filter(function (m) {
-      return m.playlistId == id;
+  getMusics(ids) {
+      let idsString = '';
+      ids.forEach(id => {
+        idsString += `id=${id}&`
+      });
+      const path = environment.baseURL + 'musics?' +idsString
+      return this.http.get(path)
+  }
+
+  getPersonalMusics(playlist) {
+    const path = environment.baseURL + 'users/' + localStorage.getItem('userId') 
+
+    return this.http.get(path)
+  }
+
+  addToPlaylist(music) {
+    const path = environment.baseURL + 'users/' + localStorage.getItem('userId')
+    this.http.patch(path, music).subscribe((res: any) => {
+      console.log('OK');
+    }, (err) => {
+      console.log(err);
     })
   }
 }

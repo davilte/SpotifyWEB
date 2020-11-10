@@ -16,12 +16,14 @@ export class PlaylistsComponent implements OnInit {
   playlist = {
     name: '',
     description: '',
-    color: '#ffffff'
+    color: '#ffffff',
+    music_ids: []
   }
   constructor(
     private router: Router,
     private playlistService: PlaylistService,
   ) {
+    this.getPublicPlaylists()
     this.getPersonalPlaylists()
   }
           
@@ -29,14 +31,16 @@ export class PlaylistsComponent implements OnInit {
   playlists: Playlist[] = []
   personalPlaylists;
 
-  ngOnInit(): void {
-    this.playlists = this.playlistService.list()
-    console.log(this.playlists);
-    
-  }
+  ngOnInit(): void { }
 
   nav(i) {
     console.log(i);
+  }
+
+  getPublicPlaylists() {
+    this.playlistService.getPublicPlaylists().subscribe((res: any) => {
+      this.playlists = res;
+    })
   }
 
   getPersonalPlaylists() {
@@ -46,6 +50,7 @@ export class PlaylistsComponent implements OnInit {
       
     })
   }
+
 
   newPlaylist() {
     this.playlistService.getPlaylists().subscribe((res: any) => {
